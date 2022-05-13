@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Item.destroy_all
+Warehouse.destroy_all
+15.times do
+  Item.create!(name: Faker::Coffee.blend_name, description: Faker::Coffee.notes)
+end
+20.times do |i|
+  warehouse = Warehouse.create!(name: "Warehouse #{i + 1}", location: Faker::Address.full_address)
+  5.times do
+    warehouse.items.create!(name: Faker::Coffee.blend_name, description: Faker::Coffee.notes)
+  end
+end
