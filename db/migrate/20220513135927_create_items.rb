@@ -5,7 +5,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.text :description
       t.references :warehouse, foreign_key: true
 
-      r.timestamps
+      t.timestamps
     end
   end
 end
