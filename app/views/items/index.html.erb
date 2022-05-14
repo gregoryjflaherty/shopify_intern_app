@@ -1,0 +1,40 @@
+<center>
+  <h1>ALL ITEMS</h1>
+  <div class="items">
+    <table class="table">
+      <thead class= 'thead-dark'>
+        <style>
+          .items {
+        position: relative;
+        height: 500px;
+        width: 1000px;
+        overflow: auto;
+        }
+        .items {
+        display: block;
+        }
+        </style>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Warehouse</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
+        <tr>
+            <th scope="row"><%= item.name %></th>
+            <th scope="row"><%= item.description %></th>
+            <% if item.warehouse.nil? %>
+              <%= form_with model: item, action: 'patch', local: true do |f| %>
+                  <th scope="row"><%= f.collection_select :warehouse_id, Warehouse.order(:id), :id,:name,include_blank: false %>
+                                  <%= button_to "Assign" %></th>
+              <% end %>
+            <% else %>
+              <th scope="row"><%= item.warehouse.name %></th>
+            <% end %>
+        <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
