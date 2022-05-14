@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    redirect_to :controller => "items", :action => "index", :edit => true, :id => params[:id]
   end
 
   def update
@@ -14,4 +15,6 @@ class ItemsController < ApplicationController
 
   def destroy
   end
+
+  
 end
