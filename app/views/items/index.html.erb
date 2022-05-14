@@ -23,6 +23,14 @@
       <tbody>
         <% @items.each do |item| %>
         <tr>
+          <% if params[:edit] && (item.id == params[:id].to_i) %>
+            <%= form_with model: item, local: true do |f| %>
+              <th scope="row"><%= f.text_field :name, value: item.name %>
+              <th scope="row"><%= f.text_field :description, value: item.description %>
+              <th scope="row"><%= f.collection_select :warehouse_id, Warehouse.order(:name),:id,:name, include_blank: true , value: item.warehouse_id %><br><br>
+              <th scope="row"><%= f.submit  %>
+            <% end %>
+          <% else %>
             <th scope="row"><%= item.name %></th>
             <th scope="row"><%= item.description %></th>
             <% if item.warehouse.nil? %>
@@ -33,6 +41,8 @@
             <% else %>
               <th scope="row"><%= item.warehouse.name %></th>
             <% end %>
+              <th scope="row"><%= button_to "Edit", edit_item_path(item), method: :get %></th>
+          <% end %>
         <% end %>
         </tr>
       </tbody>
