@@ -7,6 +7,14 @@ class ItemsController < ApplicationController
   end
 
   def create
+    check_warehouse
+    item = Item.create(item_params)
+    if item.save
+      flash[:notice] = "#{item.name} Has Been Created!"
+    else
+      flash[:alert] = "Error: #{error_message(item.errors)}"
+    end
+    redirect_to items_path
   end
 
   def edit
@@ -15,7 +23,11 @@ class ItemsController < ApplicationController
 
   def update
     @item.update(item_params)
-    flash[:notice] = "#{@item.name} Has Been Updated!"
+    if @item.save
+      flash[:notice] = "#{@item.name} Has Been Updated!"
+    else
+      flash[:alert] = "Error: #{error_message(@item.errors)}"
+    end
     redirect_to items_path
   end
 
@@ -33,5 +45,9 @@ class ItemsController < ApplicationController
 
   def get_item
     @item = Item.find_by(id: params[:id])
+  end
+
+  def check_warehouse
+    params[:warehouse_id] == "" ? params[:warehouse_id] = nil : params[:warehouse_id]
   end
 end
