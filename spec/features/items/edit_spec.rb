@@ -33,7 +33,10 @@ RSpec.describe 'Item Edit/Index Page' do
 
  it 'assigns a warehouses' do
    expect(current_path).to eq(items_path)
-   find('#item_warehouse_id', :text => 'Warehouse 1').click
+
+   within(:xpath, "/html/body/center/div/table") do
+     find('#item_warehouse_id', :text => 'Warehouse 1').click
+   end
 
    find(:xpath, "/html/body/center/div/table/tbody/tr/th[3]").click
    expect(current_path).to eq(items_path)
