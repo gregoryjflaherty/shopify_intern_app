@@ -18,18 +18,22 @@
           <th scope="col">Name</th>
           <th scope="col">Description</th>
           <th scope="col">Warehouse</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
         </tr>
       </thead>
       <tbody>
         <% @items.each do |item| %>
         <tr>
           <% if params[:edit] && (item.id == params[:id].to_i) %>
-            <%= form_with model: item, local: true do |f| %>
-              <th scope="row"><%= f.text_field :name, value: item.name %>
-              <th scope="row"><%= f.text_field :description, value: item.description %>
-              <th scope="row"><%= f.collection_select :warehouse_id, Warehouse.order(:name),:id,:name, include_blank: true , value: item.warehouse_id %><br><br>
-              <th scope="row"><%= f.submit  %>
-            <% end %>
+            <div class="edit_form">
+              <%= form_with model: item, local: true do |f| %>
+                <th scope="row"><%= f.text_field :name, value: item.name %>
+                <th scope="row"><%= f.text_field :description, value: item.description %>
+                <th scope="row"><%= f.collection_select :warehouse_id, Warehouse.order(:name),:id,:name, include_blank: true , value: item.warehouse_id %><br><br>
+                <th scope="row"><%= f.submit "Update Item", method: :update  %>
+              <% end %>
+            </div>
           <% else %>
             <th scope="row"><%= item.name %></th>
             <th scope="row"><%= item.description %></th>
@@ -42,6 +46,7 @@
               <th scope="row"><%= item.warehouse.name %></th>
             <% end %>
               <th scope="row"><%= button_to "Edit", edit_item_path(item), method: :get %></th>
+              <th scope="row"><%= button_to "Delete", item_path(item), method: :delete %></th>
           <% end %>
         <% end %>
         </tr>
