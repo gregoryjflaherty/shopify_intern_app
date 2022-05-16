@@ -18,10 +18,13 @@ RSpec.describe 'Item Delete/Index Page' do
      expect(page).to have_button("Delete")
 
      click_on "Delete"
+
+     expect(page).to have_content(@item2.name)
+     expect(page).to have_content(@item2.description)
+     expect(page).to_not have_content(@item1.name)
+     expect(page).to_not have_content(@item1.description)
     end
 
     expect(page).to have_content("Best Has Been Deleted!")
-    expect(page).to have_content(@item2.name)
-    expect(page).to_not have_content(@item1.description)
   end
 end
