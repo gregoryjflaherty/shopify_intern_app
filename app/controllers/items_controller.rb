@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :get_item, only: [:update]
+  skip_before_action :verify_authenticity_token
+  before_action :get_item, only: [:update, :destroy]
 
   def index
     @items = Item.alphabetically
@@ -19,6 +20,9 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item.destroy!
+    flash[:notice] = "#{@item.name} Has Been Deleted!"
+    redirect_to items_path
   end
 
   private
