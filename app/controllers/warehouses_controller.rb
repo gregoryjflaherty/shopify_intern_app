@@ -14,6 +14,7 @@ class WarehousesController < ApplicationController
   end
 
   def show
+    @warehouse = Warehouse.find_by(id: params[:id])
   end
 
   private
