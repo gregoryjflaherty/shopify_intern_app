@@ -3,7 +3,11 @@ class ItemsController < ApplicationController
   before_action :get_item, only: [:update, :destroy]
 
   def index
-    @items = Item.alphabetically
+    if params[:sort]
+      @items = Item.order(:warehouse_id)
+    else
+      @items = Item.alphabetically
+    end
   end
 
   def create
