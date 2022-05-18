@@ -11,6 +11,7 @@
 
   ### [Using this application :memo:](#using-this-application)
   ### [Functionality :mechanical_arm::robot:](#functionality)
+  ### [Testing :microscope:](#testing)
   ### [Workflow ![image](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](#workflow)
   ### [Author :raising_hand_man:](#author)
   ### [Built With :building_construction:](#built-with)
@@ -23,8 +24,11 @@
  :two: Install gems locally via <b>bundle install</b> from CL <br><br>
  :three: Reset database via <b>rails db:{drop,create,migrate,seed} </b> from CL <br><br>
  :four: Start server via <b>rails s </b> from CL <br><br> 
- :five: Manuever the site as you wish  <br>
+ :five: Manuever the site as you wish  <br><br>
+ :six: (Optional) Run  <b>bundle exec rspec </b> from CL to run the entire test suite <br><br> 
+ :seven: (Optional) Run  <b>open/coverage index.html </b> from CL to see coverage by line <br>  
 </div>
+ 
   
 
   # FUNCTIONALITY
@@ -54,7 +58,26 @@
 ![Screen Shot 2022-05-17 at 9 54 11 PM](https://user-images.githubusercontent.com/87443686/168941153-bb68fe49-3f8f-4b9d-a37a-132c22dc60ca.png)
 
  
+# TESTING
+  
+  This application was thoroughly testing using Rspec, SimpleCov, Capybara and Shoulda Matchers. Test coverage was held in high priority and can be seen in detail by following the following steps: <br><br>
+  
+<div align="left">
+ :one: Run  <b>bundle exec rspec </b> from CL to run the entire test suite <br><br>
+  
+  ![Screen Shot 2022-05-18 at 12 16 07 PM](https://user-images.githubusercontent.com/87443686/169091954-6f578d8f-5530-4407-9957-52e487152adf.png)
 
+  <br>
+ :two: Run  <b>open/coverage index.html </b> from CL to see coverage by line <br><br>  
+</div>
+
+  ![Screen Shot 2022-05-18 at 12 17 45 PM](https://user-images.githubusercontent.com/87443686/169092194-677b18e8-e923-4ad1-a70d-6d187bc57108.png)
+
+  <br>
+  All testing files can be found the Spec folder displayed by the following file tree: <br><br>
+  
+  
+![Screen Shot 2022-05-18 at 12 19 27 PM](https://user-images.githubusercontent.com/87443686/169093352-c98a4705-9464-46ef-98a2-352fcc33d366.png)
 
   
  # WORKFLOW
