@@ -2,20 +2,9 @@
   <h1>ALL ITEMS</h1>
   <%= link_to "Sort A-Z", items_path, method: :get %><br>
   <%= link_to "Sort by Warehouse", "/items?sort=warehouse", method: :get %><br><br>
-  <div class="items">
+  <div class="table_style">
     <table class="table">
       <thead class= 'thead-dark'>
-        <style>
-          .items {
-        position: relative;
-        height: 500px;
-        width: 1000px;
-        overflow: auto;
-        }
-        .items {
-        display: block;
-        }
-        </style>
         <tr>
           <th scope="col">Name</th>
           <th scope="col">Description</th>
@@ -28,14 +17,7 @@
         <% @items.each do |item| %>
         <tr>
           <% if params[:edit] && (item.id == params[:id].to_i) %>
-            <div class="edit_form">
-              <%= form_with model: item, local: true do |f| %>
-                <th scope="row"><%= f.text_field :name, value: item.name %>
-                <th scope="row"><%= f.text_field :description, value: item.description %>
-                <th scope="row"><%= f.collection_select :warehouse_id, Warehouse.order(:name),:id,:name, include_blank: true , value: item.warehouse_id %><br><br>
-                <th scope="row"><%= f.submit "Update Item", method: :update  %>
-              <% end %>
-            </div>
+            <%= render partial: 'midtable_edit', locals: {item: item }%>
           <% else %>
             <th scope="row"><%= item.name %></th>
             <th scope="row"><%= item.description %></th>
@@ -54,8 +36,8 @@
         </tr>
       </tbody>
     </table>
-
   </div>
+
   <h4> CREATE NEW ITEM </h4>
     <%= form_with model: Item.new , local: true do |f| %>
     <%= f.label :name %>
