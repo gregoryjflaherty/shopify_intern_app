@@ -21,7 +21,7 @@ RSpec.describe 'Create / Index Page' do
    expect(current_path).to eq(items_path)
    expect(page).to have_content("CREATE NEW ITEM")
 
-   within(:xpath, "/html/body/center/div/form") do
+   within(:xpath, "/html/body/center/form") do
      fill_in "item_name", :with => "Better"
      fill_in "item_description", :with => "Good description"
      find_button("Create Item").click
@@ -36,7 +36,7 @@ RSpec.describe 'Create / Index Page' do
  it "flashes error if name is blank" do
    expect(current_path).to eq(items_path)
 
-   within(:xpath, "/html/body/center/div/form") do
+   within(:xpath, "/html/body/center/form") do
      fill_in "item_description", :with => "Good description"
      find_button("Create Item").click
    end
@@ -49,7 +49,7 @@ RSpec.describe 'Create / Index Page' do
  it "flashes error if description is blank" do
    expect(current_path).to eq(items_path)
 
-   within(:xpath, "/html/body/center/div/form") do
+   within(:xpath, "/html/body/center/form") do
      fill_in "item_name", :with => "Better"
      find_button("Create Item").click
    end
