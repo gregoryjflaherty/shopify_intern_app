@@ -28,7 +28,27 @@ RSpec.describe 'Item Edit/Index Page' do
    expect(page).to have_content("Test Item")
    expect(page).to have_content("Good stuff")
    expect(page).to have_content("Test Item Has Been Updated!")
-   expect(page).to_not have_content("Best")
+
+   expect(page).to_not have_content(@item1.name)
+   expect(page).to_not have_content(@item1.description)
+ end
+
+ it 'throws an error name/description changed to nothing' do
+  expect(current_path).to eq(items_path)
+
+  within(:xpath, "/html/body/center/div/table/tbody/tr[1]") do
+   click_on "Edit"
+
+   fill_in "item_name", :with => nil
+   fill_in "item_description", :with => "Good stuff"
+   find_button("Update Item").click
+  end
+
+   expect(current_path).to eq(items_path)
+   expect(page).to have_content(@item1.name)
+
+   expect(page).to_not have_content("Good stuff")
+   expect(page).to have_content("Error: Name can't be blank")
  end
 
  it 'assigns a warehouses' do
