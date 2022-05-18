@@ -36,4 +36,23 @@ RSpec.describe 'Item Index Page' do
    expect(page).to have_content(@item3.name)
   end
  end
+
+ it 'can list items by warehouse' do
+   expect(current_path).to eq(items_path)
+   click_on "Sort by Warehouse"
+
+   expect(current_path).to eq(items_path)
+
+   within(:xpath, "/html/body/center/div/table/tbody/tr[1]") do
+    expect(page).to have_content(@item2.name)
+   end
+
+   within(:xpath, "/html/body/center/div/table/tbody/tr[2]") do
+    expect(page).to have_content(@item3.name)
+   end
+
+   within(:xpath, "/html/body/center/div/table/tbody/tr[3]") do
+    expect(page).to have_content(@item1.name)
+   end
+ end
 end
