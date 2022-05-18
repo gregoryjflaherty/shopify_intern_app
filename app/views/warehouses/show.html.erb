@@ -2,31 +2,26 @@
   <h1><%= @warehouse.name %></h1>
   <h3><%= @warehouse.location %></h3><br>
   <h3><%= "ALL ITEMS" %></h3>
-  <div class="warehouses">
-    <table class="table">
-      <thead class= 'table-dark'>
-        <style>
-          .warehouses {
-        position: relative;
-        height: 500px;
-        width: 1000px;
-        overflow: auto;
-        }
-        .warehouses {
-        display: block;
-        }
-        </style>
-        <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @warehouse.items.each do |item| %>
-        <tr>
-            <th scope="row"><%= item.name %></th>
-            <th scope="row"><%= item.description %></th>
-        <%end%>
-      </tbody>
-    </table>
-  </div>
+  <% if @warehouse.items.empty? %>
+    <h3> THIS WAREHOUSE IS EMPTY </h3>
+  <% else %>
+    <div class="table_style">
+      <table class="table">
+        <thead class= 'table-dark'>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+
+            <% @warehouse.items.each do |item| %>
+
+            <tr>
+              <th scope="row"><%= item.name %></th>
+              <th scope="row"><%= item.description %></th>
+            <%end%>
+        </tbody>
+      </table>
+    </div>
+  <%end%>
