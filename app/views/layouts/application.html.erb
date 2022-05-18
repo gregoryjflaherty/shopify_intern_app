@@ -7,6 +7,10 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= link_to "Home", root_path, method: :get %>
+    <%= link_to "Items", items_path, method: :get %>
+    <%= link_to "Warehouses", warehouses_path, method: :get %>
   </head>
     <% flash.each do |type, notice| %>
       <center>
