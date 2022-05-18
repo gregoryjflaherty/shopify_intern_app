@@ -5,7 +5,7 @@
   ![image](http://www.thebluediamondgallery.com/handwriting/images/inventory.jpg)
   
 # INVENTORY APP 
-  This application was built as a requirement for an open internship position (Backend Developer) at ![image](https://img.shields.io/badge/shopify-8DB543?style=for-the-badge&logo=Shopify&logoColor=white). This application was submitted on May 18th, 2022. This README will provide further information on [how to use this application](#using-this-application), [how this application was built](#workflow) and [further information about the author](#author) 
+  This application was built as a requirement for an open internship position (Backend Developer) at ![image](https://img.shields.io/badge/shopify-8DB543?style=for-the-badge&logo=Shopify&logoColor=white). This application was submitted on May 18th, 2022 and will be simultaneously hosted on ![Replit](https://img.shields.io/badge/Replit-DD1200?style=for-the-badge&logo=Replit&logoColor=white) for convenience - [Found Here](https://replit.com/@GregFlaherty/shopifybackendinternshipFall22?v=1).  This README will provide further information on [how to use this application](#using-this-application), [how this application was built](#workflow) and [further information about the author](#author) 
     
   ## Table of Contents
 
@@ -105,6 +105,9 @@ If any ideas for improvement, any errors are seen, or if you are interested in b
   
  ### Ruby version 2.7.4
  ### Rails version 5.2.7
+  
+ Hosted on ![Replit](https://img.shields.io/badge/Replit-DD1200?style=for-the-badge&logo=Replit&logoColor=white) <br>
+ [Found Here](https://replit.com/@GregFlaherty/shopifybackendinternshipFall22?v=1) 
   
   <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" />  <img src="https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white" /> <img src="https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&logo=ruby-on-rails&logoColor=white" /> <img src="https://img.shields.io/badge/Atom-66595C?style=for-the-badge&logo=Atom&logoColor=white" /> <img src="https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&logo=ruby&logoColor=white" /> <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" /> <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white" /> <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />           
   
